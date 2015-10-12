@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -79,6 +80,20 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
         poemListView.setAdapter(new CustomAdapter(this, poems));
+//        poemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                System.out.println("Position on Click" + position);
+//
+//                Intent intent = new Intent(context, Main2Activity.class);
+//                intent.putExtra("PoemTitle", poems.get(position));
+//                context.startActivity(intent);
+//
+//            }
+//        });
+
+
         //     poemListView.setBackgroundColor(Color.TRANSPARENT);
         // poemListView.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.listbg_more));
         //  poemListView.setBackgroundResource(R.drawable.singlepoembackground);
@@ -88,9 +103,7 @@ public class MainActivity extends AppCompatActivity {
     private void getLoadPoems() {
 
         ArrayList<String> poems =JSONReader.getPoemListByPoet(this, "das");
-
         System.out.println("Total Poems"+ poems.get(0));
-
         this.poems = poems;
         //   this.poems.add("বনলতা সেন");
 //        this.poems.add("হাজার বছর ধরে");
